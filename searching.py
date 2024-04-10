@@ -42,7 +42,10 @@ def pattern_search(sequence, vzor):
         if tesovaci_str == vzor:
             idx = idx + int(vzor_delka/2)
             idxs.add(idx)
-    return idxs
+    if len(idxs) == 0:
+        return "Sekvence nebyla nalezena"
+    else:
+        return idxs
 
 
 def main():
@@ -51,7 +54,7 @@ def main():
 
     letter_sequence = read_data("sequential.json", "dna_sequence")
 
-    occurance_let_seq = pattern_search(letter_sequence, "GTA")
+    occurance_let_seq = pattern_search(letter_sequence, "ATGA")
     print(occurance_let_seq)
 
     occurance_of_num = linear_search(unordered_numbers, 9)
